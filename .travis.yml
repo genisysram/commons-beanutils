@@ -28,7 +28,6 @@ jdk:
   - openjdk-ea
 
 before_install:
-- |
     if [[ "$TRAVIS_CPU_ARCH" = "ppc64le" ]]; then 
        - mkdir -p /opt/maven
         - curl https://downloads.apache.org/maven/maven-3/3.6.3/binaries/apache-maven-3.6.3-bin.tar.gz|tar -xz --strip 1 -C /opt/maven
