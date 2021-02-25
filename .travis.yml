@@ -21,17 +21,21 @@ arch:
     - ppc64le
 
 jdk:
-  - oraclejdk11
+ # - oraclejdk11
   - openjdk8
   - openjdk11
   - openjdk15
   - openjdk-ea
 
 before_install:
-        - mkdir -p /opt/maven
+- |
+    if [[ "$TRAVIS_CPU_ARCH" = "ppc64le" ]]; then 
+       - mkdir -p /opt/maven
         - curl https://downloads.apache.org/maven/maven-3/3.6.3/binaries/apache-maven-3.6.3-bin.tar.gz|tar -xz --strip 1 -C /opt/maven
         - export MAVEN_HOME=/opt/maven
-        - export PATH=${MAVEN_HOME}/bin:${PATH}  
+        - export PATH=${MAVEN_HOME}/bin:${PATH}
+    fi
+          
 
 after_success:
   - mvn clean cobertura:cobertura coveralls:report --no-transfer-progress
