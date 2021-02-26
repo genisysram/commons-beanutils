@@ -21,11 +21,17 @@ arch:
     - ppc64le
 
 jdk:
- # - oraclejdk11
+  - oraclejdk11
   - openjdk8
   - openjdk11
   - openjdk15
   - openjdk-ea
+ 
+ jobs:
+  exclude:
+   - oraclejdk11
+     arch: ppc64le
+    
 
 before_install:
 #the default maven version is not  supporting , hence installing maven 3.6.3
