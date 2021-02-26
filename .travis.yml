@@ -27,7 +27,7 @@ jdk:
   - openjdk15
   - openjdk-ea
  
- jobs:
+jobs:
  exclude:  
     - arch: ppc64le
       java: oraclejdk11
