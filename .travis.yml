@@ -30,7 +30,7 @@ jdk:
 jobs:
  exclude:  
     - arch: ppc64le
-      java: oraclejdk11
+      jdk: oraclejdk11
     
 
 before_install:
